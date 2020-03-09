@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <title>vue 累加计数器</title>
+</head>
+
+<body>
+    <!-- v-model.number后面的这个.number的意思是说
+    在返回my_step值的时候自动转换成integer类型，因为默认是string类型，所以要多这么一句。 -->
+    <div id="firstvue">
+        <P>{{my_total}}</P>
+        <input type="number" v-model.number="my_step" />
+        <button v-on:click="clickButton()">Click On</button>
+    </div>
+</body>
+<script type="text/javascript">
+    var myVue = new Vue({
+        el: "#firstvue",
+        data: {
+            my_step: 1,
+            my_total: 0
+        },
+        methods: {
+            clickButton: function () {
+                this.my_total = this.my_total + this.my_step
+            }
+        }
+
+    })
+</script>
+
+</html>
